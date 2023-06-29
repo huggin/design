@@ -30,6 +30,9 @@ class HashTable(object):
         idx = self._hash_function(key)
         for i, item in enumerate(self.table[idx]):
             if item.key == key:
-                del self.table[idx][i]
+                n = len(self.table[idx])
+                if i != n - 1:
+                    self.table[idx][i], self.table[idx][n-1] = self.table[idx][n-1], self.table[idx][i]
+                self.table[idx].pop()
                 return
         raise KeyError('Key not found')
