@@ -95,8 +95,8 @@ class Hand(object):
             ans = Rank.FLUSH
             if cards[0].value == cards[4].value + 4:
                 ans = Rank.STRAIGHT_FLUSH
-                if cards[0].value == 12:
-                    ans = Rank.ROYAR_FLUSH
+            elif cards[0].value == 12 and cards[3].value == 9 and cards[4].value == 0:
+                ans = Rank.ROYAR_FLUSH
             return ans
         
         two, three = 0, 0
@@ -118,7 +118,7 @@ class Hand(object):
         elif two == 1:
             return Rank.ONE_PAIR
         
-        if cards[0].value == cards[4].value + 4:
+        if cards[0].value == cards[4].value + 4 or cards[0].value == 12 and cards[3].value == 9 and cards[4].value == 0:
             return Rank.STRAIGHT
 
         return Rank.HIGH_CARD

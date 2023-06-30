@@ -40,7 +40,7 @@ class DeckCardsTable(unittest.TestCase):
         hand3 = deck_cards.Hand()
         hand3.add_card(10)
         hand3.add_card(12)
-        hand3.add_card(8)
+        hand3.add_card(0)
         hand3.add_card(11)
         hand3.add_card(9)
         self.assertEqual(hand3.ranking(), deck_cards.Rank.ROYAR_FLUSH)
@@ -50,7 +50,7 @@ class DeckCardsTable(unittest.TestCase):
         hand4.add_card(12)
         hand4.add_card(13)
         hand4.add_card(11)
-        hand4.add_card(9)
+        hand4.add_card(14)
         self.assertEqual(hand4.ranking(), deck_cards.Rank.HIGH_CARD)
 
 
