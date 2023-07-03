@@ -1,5 +1,6 @@
 class Node(object):
-    def __init__(self, val):
+    def __init__(self, key, val):
+        self.key = key
         self.val = val
         self.prev = None
         self.next = None
@@ -45,12 +46,12 @@ class Cache(object):
             self.list.append_to_front(node)
         else:
             if self.size == self.max_size:
-                self.lookup.pop(key, None)
+                self.lookup.pop(self.list.tail.key, None)
                 self.list.remove_from_tail()
             else:
                 self.size += 1
 
-            new_node = Node(val)
+            new_node = Node(key, val)
             self.list.append_to_front(new_node)
             self.lookup[key] = new_node
 
